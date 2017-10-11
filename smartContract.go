@@ -21,7 +21,7 @@ func main() {
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	err := stub.PutState("data", []byte(args[0]))
 	if err != nil {
-		return nil, err
+		return args[0], err
 	}
 	return nil, nil
 }
